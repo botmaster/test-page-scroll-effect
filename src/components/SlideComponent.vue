@@ -1,5 +1,5 @@
 <template>
-    <div class="slide-component">
+    <div class="slide-component" :style="'backgroundColor:' + values.backgroundColor">
         <div style="flex: 0 0 auto; overflow: hidden; min-width: 0;">
             <h2>Je suis le slide {{ index }}</h2>
             <h4>Je suis actif ? : {{ isActive }}</h4>
@@ -43,6 +43,14 @@ export default {
         index: {
             type: Number,
             default: -1
+        },
+        values: {
+            type: Object,
+            default: function() {
+                return {
+                    backgroundColor: "blue"
+                };
+            }
         }
     },
     methods: {

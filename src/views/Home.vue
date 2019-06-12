@@ -1,10 +1,26 @@
 <template>
     <div class="home">
         <scroll-page-component>
-            <slide-component :index="0" :key="1"></slide-component>
-            <slide-component :index="1" :key="2"></slide-component>
-            <slide-component :index="2" :key="3"></slide-component>
-            <slide-component :index="3" :key="4"></slide-component>
+            <slide-component
+                :index="0"
+                :key="1"
+                :values="{ backgroundColor: '#bdc667' }"
+            ></slide-component>
+            <slide-component
+                :index="1"
+                :key="2"
+                :values="{ backgroundColor: '#8bab81' }"
+            ></slide-component>
+            <slide-component
+                :index="2"
+                :key="3"
+                :values="{ backgroundColor: '#47a89f' }"
+            ></slide-component>
+            <slide-component
+                :index="3"
+                :key="4"
+                :values="{ backgroundColor: '#c583b2' }"
+            ></slide-component>
         </scroll-page-component>
     </div>
 </template>
