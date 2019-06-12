@@ -9,6 +9,10 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "gsap": "^2.1.3",
+    "hammerjs": "^2.0.8",
+    "jquery": "^3.4.1",
+    "slick-carousel": "^1.8.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1"
