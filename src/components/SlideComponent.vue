@@ -1,14 +1,17 @@
 <template>
-    <div class="slide-component" :style="'backgroundColor:' + values.backgroundColor">
-        <div style="flex: 0 0 auto; overflow: hidden; min-width: 0;">
+    <div
+        class="slide-component"
+        :style="'backgroundColor:' + values.backgroundColor"
+    >
+        <div style="flex: 0 0 auto; min-width: 0;">
             <h2>Je suis le slide {{ index }}</h2>
             <h4>Je suis actif ? : {{ isActive }}</h4>
             <a href="http://www.lahautesociete.com">coucou</a>
-            <div style="width: 100vw">
+            <div style="width: 60vw">
                 <div
                     :id="'slider' + index"
                     data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'
-                    style="overflow: hidden;"
+                    style="overflow: visible;"
                 >
                     <div><h3>1</h3></div>
                     <div><h3>2</h3></div>
@@ -17,6 +20,8 @@
                     <div><h3>5</h3></div>
                     <div><h3>6</h3></div>
                     <div><h3>7</h3></div>
+                    <div><h3>8</h3></div>
+                    <div><h3>9</h3></div>
                 </div>
             </div>
         </div>
@@ -31,8 +36,10 @@
  * Time: 16:47
  */
 
-import { TweenMax, Sine } from "gsap/all";
-const plugins = [Sine]; //eslint-disable-line
+import { TweenMax } from "gsap/TweenMaxBase";
+import { Sine } from "gsap/EasePack";
+import { CSSPlugin } from "gsap/CSSPlugin";
+const plugins = [Sine, CSSPlugin]; //eslint-disable-line
 
 import Slick from "slick-carousel"; //eslint-disable-line
 
@@ -147,7 +154,7 @@ export default {
 <style lang="scss">
 .slide-component {
     z-index: 0;
-    overflow: hidden;
+    //overflow: hidden;
     position: absolute;
     top: 0;
     right: 0;

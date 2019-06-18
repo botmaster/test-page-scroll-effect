@@ -3,7 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-window.$ = window.jQuery = require("jquery");
+//window.$ = window.jQuery = require("jquery");
 
 import "../node_modules/slick-carousel/slick/slick.scss";
 import "../node_modules/slick-carousel/slick/slick-theme.scss";
