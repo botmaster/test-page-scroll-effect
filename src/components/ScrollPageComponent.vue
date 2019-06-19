@@ -1,5 +1,5 @@
 <template>
-    <div class="scroll-page-component">
+    <div v-touch:swipe="swipeHandler" class="scroll-page-component">
         <slot></slot>
         <nav class="slidenav">
             <button
@@ -76,13 +76,26 @@ export default {
             //this.$refs.slide[nextSlidePos].showMe("coucou");
             //this.isAnimating = false;
             this.current = nextSlidePos;
+        },
+        swipeHandler(direction) {
+            console.log(direction);
+            switch (direction) {
+                case "top":
+                    this.navigate("down");
+                    break;
+                case "bottom":
+                    this.navigate("up");
+                    break;
+                default:
+                    break;
+            }
         }
     },
     mounted() {
         console.log(this.$slots.default.length);
         this.slides = this.$slots.default;
 
-        let mc = new Hammer(this.$el, {
+        /*let mc = new Hammer(this.$el, {
             cssProps: {
                 userSelect: false
             }
@@ -107,7 +120,7 @@ export default {
                 default:
                     break;
             }
-        });
+        });*/
     }
 };
 </script>
