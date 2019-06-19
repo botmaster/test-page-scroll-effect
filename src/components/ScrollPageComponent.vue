@@ -114,6 +114,7 @@ export default {
 
 <style lang="scss" scoped>
 .scroll-page-component {
+    cursor: grab;
     position: relative;
     width: 100%;
     height: 100%;

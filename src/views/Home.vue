@@ -21,6 +21,7 @@
                 :key="4"
                 :values="{ backgroundColor: '#c583b2' }"
             ></slide-component>
+            <slide-test :index="4"></slide-test>
         </scroll-page-component>
     </div>
 </template>
@@ -32,10 +33,11 @@
 
 import SlideComponent from "../components/SlideComponent";
 import ScrollPageComponent from "../components/ScrollPageComponent";
+import SlideTest from "../components/SlideTest";
 
 export default {
     name: "home",
-    components: { ScrollPageComponent, SlideComponent }
+    components: { SlideTest, ScrollPageComponent, SlideComponent }
 };
 </script>
 
