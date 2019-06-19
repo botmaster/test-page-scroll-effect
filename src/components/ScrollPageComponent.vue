@@ -26,8 +26,6 @@
  * Time: 09:34
  */
 
-import Hammer from "hammerjs";
-
 export default {
     name: "ScrollPageComponent",
     data() {
@@ -94,33 +92,6 @@ export default {
     mounted() {
         console.log(this.$slots.default.length);
         this.slides = this.$slots.default;
-
-        /*let mc = new Hammer(this.$el, {
-            cssProps: {
-                userSelect: false
-            }
-        });
-
-        // let the pan gesture support all directions.
-        // this will block the vertical scrolling on a touch-device while on the element
-        mc.get("pan").set({
-            direction: Hammer.DIRECTION_ALL
-        });
-
-        // listen to events...
-        mc.on("panleft panright panup pandown tap press", ev => {
-            console.log("event type: ", ev.type);
-            switch (ev.type) {
-                case "panup":
-                    this.navigate("down");
-                    break;
-                case "pandown":
-                    this.navigate("up");
-                    break;
-                default:
-                    break;
-            }
-        });*/
     }
 };
 </script>
