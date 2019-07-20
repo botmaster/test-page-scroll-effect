@@ -1,10 +1,14 @@
 <template>
-    <div class="slide-test">
-        <p>Je surkiff les mixins !!!</p>
-        <div style="flex: 0 0 auto; min-width: 0;">
-            <h2>Je suis le slide {{ index }}</h2>
-            <h4>Je suis actif ? : {{ isActive }}</h4>
-            <a href="http://www.lahautesociete.com">coucou</a>
+    <div class="slide-test hidden">
+        <div ref="wrapper" class="wrapper">
+            <div style="flex: 0 0 auto; min-width: 0;">
+                <p>Je surkiff les mixins !!!</p>
+                <div style="flex: 0 0 auto; min-width: 0;">
+                    <h2>Je suis le slide {{ index }}</h2>
+                    <h4>Je suis actif ? : {{ isActive }}</h4>
+                    <a href="http://www.lahautesociete.com">coucou</a>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -31,8 +35,9 @@ export default {
             console.log(value, direction);
             if (value) {
                 //this.$el.style.display = "flex";
-                this.$el.style.visibility = "visible";
-                TweenMax.to(this.$el, 0.6, {
+                //this.$el.style.visibility = "visible";
+                this.$el.classList.remove("hidden");
+                TweenMax.to(this.$refs.wrapper, 0.6, {
                     startAt: {
                         scale: direction === "down" ? 0 : 0
                     },
@@ -46,7 +51,7 @@ export default {
             } else {
                 //this.$el.style.zIndex = this.index;
                 this.$el.style.position = "absolute";
-                TweenMax.to(this.$el, 0.6, {
+                TweenMax.to(this.$refs.wrapper, 0.6, {
                     startAt: {
                         scale: direction === "down" ? 1 : 1
                     },
@@ -54,7 +59,8 @@ export default {
                     ease: Sine.easeIn,
                     onComplete: () => {
                         //this.$el.style.display = "none";
-                        this.$el.style.visibility = "hidden";
+                        //this.$el.style.visibility = "hidden";
+                        this.$el.classList.add("hidden");
                         this.$parent.isAnimating = false;
                     }
                 });
@@ -75,16 +81,28 @@ export default {
     bottom: 0;
     width: 100%;
     height: 100%;
-    border: 20px solid #1d1d1d;
-    background-color: #42b983;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    //display: none;
-    visibility: hidden;
     user-select: none;
+
+    .wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        border: 12px solid black;
+        background-color: #42b983;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
 
     img {
         width: 100%;

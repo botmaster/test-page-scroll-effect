@@ -3,13 +3,12 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import Vue2TouchEvents from "vue2-touch-events";
+import VueCarousel from "vue-carousel";
 
 //window.$ = window.jQuery = require("jquery");
 
-import "../node_modules/slick-carousel/slick/slick.scss";
-import "../node_modules/slick-carousel/slick/slick-theme.scss";
-
 Vue.use(Vue2TouchEvents);
+Vue.use(VueCarousel);
 Vue.config.productionTip = false;
 
 new Vue({

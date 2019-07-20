@@ -37,7 +37,8 @@ import SlideTest from "../components/SlideTest";
 
 export default {
     name: "home",
-    components: { SlideTest, ScrollPageComponent, SlideComponent }
+    components: { SlideTest, ScrollPageComponent, SlideComponent },
+    mounted() {}
 };
 </script>
 

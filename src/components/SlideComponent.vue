@@ -1,27 +1,39 @@
 <template>
-    <div
-        class="slide-component"
-        :style="'backgroundColor:' + values.backgroundColor"
-    >
-        <div style="flex: 0 0 auto; min-width: 0;">
-            <h2>Je suis le slide {{ index }}</h2>
-            <h4>Je suis actif ? : {{ isActive }}</h4>
-            <a href="http://www.lahautesociete.com">coucou</a>
-            <div style="width: 60vw">
-                <div
-                    :id="'slider' + index"
-                    data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'
-                    style="overflow: visible;"
-                >
-                    <div><h3>1</h3></div>
-                    <div><h3>2</h3></div>
-                    <div><h3>3</h3></div>
-                    <div><h3>4</h3></div>
-                    <div><h3>5</h3></div>
-                    <div><h3>6</h3></div>
-                    <div><h3>7</h3></div>
-                    <div><h3>8</h3></div>
-                    <div><h3>9</h3></div>
+    <div class="slide-component hidden">
+        <div
+            ref="wrapper"
+            :style="'backgroundColor:' + values.backgroundColor"
+            class="wrapper"
+            style=""
+        >
+            <div style="flex: 0 0 auto; min-width: 0;">
+                <h2>Je suis le slide {{ index }}</h2>
+                <h4>Je suis actif ? : {{ isActive }}</h4>
+                <a href="http://www.lahautesociete.com">coucou</a>
+                <div style="width: 60vw">
+                    <carousel>
+                        <slide>
+                            Slide 1 Content
+                        </slide>
+                        <slide>
+                            Slide 2 Content
+                        </slide>
+                        <slide>
+                            Slide 3 Content
+                        </slide>
+                        <slide>
+                            Slide 4 Content
+                        </slide>
+                        <slide>
+                            Slide 5 Content
+                        </slide>
+                        <slide>
+                            Slide 6 Content
+                        </slide>
+                        <slide>
+                            Slide 7 Content
+                        </slide>
+                    </carousel>
                 </div>
             </div>
         </div>
@@ -35,8 +47,6 @@
  * Date: 2019-06-10
  * Time: 16:47
  */
-
-import Slick from "slick-carousel"; //eslint-disable-line
 
 import { slideAnim } from "../mixins/slideAnim";
 
@@ -57,9 +67,7 @@ export default {
     methods: {},
     watch: {},
     computed: {},
-    mounted() {
-        $("#slider" + this.index).slick();
-    }
+    mounted() {}
 };
 </script>
 
@@ -74,16 +82,23 @@ export default {
     bottom: 0;
     width: 100%;
     height: 100%;
-    border: 1px solid black;
-    background-color: Black;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    //display: none;
-    visibility: hidden;
     user-select: none;
+
+    .wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        border: 1px solid black;
+        background-color: Black;
+    }
 
     img {
         width: 100%;

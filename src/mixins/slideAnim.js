@@ -23,8 +23,9 @@ export const slideAnim = {
             console.log(value, direction);
             if (value) {
                 //this.$el.style.display = "flex";
-                this.$el.style.visibility = "visible";
-                TweenMax.to(this.$el, 0.6, {
+                //this.$el.style.visibility = "visible";
+                this.$el.classList.remove("hidden");
+                TweenMax.to(this.$refs.wrapper, 0.6, {
                     startAt: {
                         y: direction === "down" ? "100%" : "-40%"
                     },
@@ -38,7 +39,7 @@ export const slideAnim = {
             } else {
                 //this.$el.style.zIndex = this.index;
                 this.$el.style.position = "absolute";
-                TweenMax.to(this.$el, 0.6, {
+                TweenMax.to(this.$refs.wrapper, 0.6, {
                     startAt: {
                         y: direction === "down" ? "0%" : "0%"
                     },
@@ -46,7 +47,8 @@ export const slideAnim = {
                     ease: Sine.easeIn,
                     onComplete: () => {
                         //this.$el.style.display = "none";
-                        this.$el.style.visibility = "hidden";
+                        //this.$el.style.visibility = "hidden";
+                        this.$el.classList.add("hidden");
                         this.$parent.isAnimating = false;
                     }
                 });
@@ -71,10 +73,10 @@ export const slideAnim = {
         }
     },
     mounted() {
-        if (this.$parent.current === this.index) {
+        /*if (this.$parent.current === this.index) {
             this.showMe(true, this.$parent.direction);
         } else {
             this.showMe(false, this.$parent.direction);
-        }
+        }*/
     }
 };

@@ -81,4 +81,12 @@ body {
         }
     }
 }
+
+.hidden {
+    position: absolute !important;
+    overflow: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    pointer-events: none !important;
+}
 </style>

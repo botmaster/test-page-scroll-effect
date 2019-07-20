@@ -30,7 +30,7 @@ export default {
     name: "ScrollPageComponent",
     data() {
         return {
-            current: 0,
+            current: null,
             slides: [],
             isAnimating: false,
             direction: "down"
@@ -92,6 +92,9 @@ export default {
     mounted() {
         console.log(this.$slots.default.length);
         this.slides = this.$slots.default;
+        setTimeout(() => {
+            this.current = 0;
+        }, 1000);
     }
 };
 </script>
